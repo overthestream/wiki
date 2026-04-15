@@ -2,7 +2,7 @@
 title: "Virtual Thread"
 type: concept
 tags: [java, concurrency, jvm, virtual-thread]
-sources: [raw/articles/java-virtual-threads.md, raw/articles/virtual-thread-QnA.md]
+sources: [raw/articles/java-virtual-threads.md, raw/articles/virtual-thread-QnA.md, "raw/articles/SimpleAsyncTaskExecutor (Spring Framework 7.0.6 API).md"]
 created: 2026-04-15
 updated: 2026-04-15
 ---
@@ -70,6 +70,9 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 ### 실무 적용
 
 - **Spring Boot**: `spring.threads.virtual.enabled=true`로 Tomcat 요청별 Virtual Thread 활성화
+  - 내부적으로 `SimpleAsyncTaskExecutor.setVirtualThreads(true)` 사용 — 태스크당 새 Virtual Thread를 생성하는 방식으로, 스레드 재사용 없이 동작하므로 Virtual Thread의 "풀링 금지" 원칙과 자연스럽게 부합
+  - `setConcurrencyLimit()`으로 동시 실행 수 제한 가능 (Semaphore와 유사한 효과)
+  - 상세: [[summaries/2026-04-15-simple-async-task-executor|SimpleAsyncTaskExecutor API 요약]]
 - **JDBC**: PostgreSQL(42.6.0+), MariaDB(3.3.0+), Oracle(21c+), MS SQL(12.2.0+) 지원. MySQL은 대응 지연
 - **MongoDB**: Java 드라이버 v4.11+에서 공식 지원
 
@@ -112,3 +115,4 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 - [[concepts/jvm-monitor|JVM Monitor]] — synchronized의 내부 동작과 pinning의 근본 원인
 - [[summaries/2026-04-15-java-virtual-threads|Java Virtual Threads 공식 문서 요약]]
 - [[summaries/2026-04-15-virtual-thread-qna|Virtual Thread Q&A]]
+- [[summaries/2026-04-15-simple-async-task-executor|SimpleAsyncTaskExecutor API 요약]] — Spring의 Virtual Thread 통합 구현체

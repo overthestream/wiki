@@ -20,6 +20,7 @@ updated: 2026-04-15
 ## Summaries (요약)
 <!-- 원본 자료별 요약 -->
 - [[summaries/2026-04-15-java-virtual-threads|Java Virtual Threads 공식 문서 요약]] — Oracle Java 21 공식 문서 기반 Virtual Thread 개요
+- [[summaries/2026-04-15-simple-async-task-executor|SimpleAsyncTaskExecutor API 요약]] — Spring의 TaskExecutor: Virtual Thread 지원, 동시성 제한, graceful shutdown
 - [[summaries/2026-04-15-virtual-thread-qna|Virtual Thread 심층 Q&A]] — JVM 모니터, JDK 24 개선, JDBC/MongoDB 호환성까지 확장한 Q&A
 
 ## Syntheses (종합)

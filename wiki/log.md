@@ -24,3 +24,9 @@ updated: 2026-04-15
 - 요약: JVM 모니터 하드웨어 레벨 분석, JDK 24 pinning 해결, Semaphore 패턴, JDBC/MongoDB 드라이버 호환성
 - 새 페이지: [[summaries/2026-04-15-virtual-thread-qna]]
 - 업데이트: [[concepts/virtual-thread]], [[concepts/thread-pinning]], [[concepts/jvm-monitor]]
+
+## [2026-04-15] ingest | SimpleAsyncTaskExecutor API
+- 원본: raw/articles/SimpleAsyncTaskExecutor (Spring Framework 7.0.6 API).md
+- 요약: Spring의 TaskExecutor 구현체 — Virtual Thread 모드, 동시성 제한, graceful shutdown
+- 새 페이지: [[summaries/2026-04-15-simple-async-task-executor]]
+- 업데이트: [[concepts/virtual-thread]]
