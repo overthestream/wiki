@@ -30,3 +30,9 @@ updated: 2026-04-15
 - 요약: Spring의 TaskExecutor 구현체 — Virtual Thread 모드, 동시성 제한, graceful shutdown
 - 새 페이지: [[summaries/2026-04-15-simple-async-task-executor]]
 - 업데이트: [[concepts/virtual-thread]]
+
+## [2026-04-15] ingest | 모니터 개념 정리
+- 원본: raw/articles/Monitors.md
+- 요약: 동시성 프로그래밍의 모니터 개념 — 세마포어 한계, 모니터 구조, Hoare vs Mesa, Java synchronized와의 관계
+- 새 페이지: [[summaries/2026-04-15-monitors]], [[concepts/monitor]], [[concepts/semaphore]]
+- 업데이트: [[concepts/jvm-monitor]], [[concepts/virtual-thread]]

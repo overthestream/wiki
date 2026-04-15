@@ -2,7 +2,7 @@
 title: "JVM Monitor"
 type: concept
 tags: [java, concurrency, jvm, synchronization, hardware]
-sources: [raw/articles/virtual-thread-QnA.md]
+sources: [raw/articles/virtual-thread-QnA.md, raw/articles/Monitors.md]
 created: 2026-04-15
 updated: 2026-04-15
 ---
@@ -11,7 +11,7 @@ updated: 2026-04-15
 
 ## Definition
 
-Java의 모니터는 CS의 **Hoare/Mesa 모니터** 개념을 구현한 것으로, 상호 배제(Mutual Exclusion)와 조건 변수(Condition Variable)를 결합한 동기화 메커니즘이다.
+Java의 모니터는 CS의 **Hoare/Mesa 모니터** 개념을 구현한 것으로, 상호 배제(Mutual Exclusion)와 조건 변수(Condition Variable)를 결합한 동기화 메커니즘이다. 이론적 배경은 [[concepts/monitor|Monitor]] 참조.
 
 ```
 Java Monitor = Mutual Exclusion (synchronized) + Condition Variable (wait/notify)
@@ -162,6 +162,9 @@ try {
 
 ## Related
 
+- [[concepts/monitor|Monitor]] — CS 이론 레벨의 모니터 개념 (Hoare vs Mesa, 조건 변수)
+- [[concepts/semaphore|Semaphore]] — 모니터 이전의 저수준 동기화 프리미티브
 - [[concepts/virtual-thread|Virtual Thread]] — 모니터 메커니즘이 영향을 미치는 대상
 - [[concepts/thread-pinning|Thread Pinning]] — 모니터가 원인인 pinning 문제
 - [[summaries/2026-04-15-virtual-thread-qna|Virtual Thread Q&A]] — 하드웨어 레벨까지의 상세 분석 원본
+- [[summaries/2026-04-15-monitors|모니터 개념 정리]] — 모니터 이론 원본 자료

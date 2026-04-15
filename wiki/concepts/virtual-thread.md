@@ -112,6 +112,7 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 ## Related
 
 - [[concepts/thread-pinning|Thread Pinning]] — Virtual Thread가 carrier에 고정되는 문제
+- [[concepts/monitor|Monitor]] — 동기화 추상화 이론 (Hoare vs Mesa)
 - [[concepts/jvm-monitor|JVM Monitor]] — synchronized의 내부 동작과 pinning의 근본 원인
 - [[summaries/2026-04-15-java-virtual-threads|Java Virtual Threads 공식 문서 요약]]
 - [[summaries/2026-04-15-virtual-thread-qna|Virtual Thread Q&A]]
