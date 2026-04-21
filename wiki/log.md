@@ -42,3 +42,10 @@ updated: 2026-04-21
 - 요약: LiveKit Agents는 LiveKit Room의 리얼타임 참여자로 동작하는 Voice AI 에이전트 프레임워크. WebRTC/STT-LLM-TTS/턴 감지/멀티모달을 SDK 레벨로 추상화
 - 새 페이지: [[summaries/2026-04-21-livekit-documentation]], [[entities/livekit]], [[concepts/voice-ai-agent]], [[concepts/stt-llm-tts-pipeline]]
 - 인사이트: 위키 주제가 Java/동시성 중심에서 AI/Realtime 도메인으로 처음 확장. 장기적으로 에이전트 서버의 동시성 모델이 [[concepts/virtual-thread]]와 연결될 여지 있음
+
+## [2026-04-21] ingest | Amazon Nova Sonic + Bedrock AgentCore 멀티 에이전트 보이스 어시스턴트
+- 원본: raw/articles/Building a multi-agent voice assistant with Amazon Nova Sonic and Amazon Bedrock AgentCore.md
+- 요약: speech-to-speech foundation model(Nova Sonic)이 오케스트레이터로서 tool use 이벤트를 통해 AgentCore 위의 Strands 서브 에이전트를 호출하는 멀티 에이전트 보이스 아키텍처. 뱅킹 어시스턴트 샘플로 설명
+- 새 페이지: [[summaries/2026-04-21-nova-sonic-multi-agent-voice-assistant]], [[entities/amazon-nova-sonic]], [[entities/amazon-bedrock-agentcore]], [[entities/strands-agents]], [[concepts/multi-agent-voice-architecture]]
+- 업데이트: [[concepts/voice-ai-agent]] — 구현 접근법(WebRTC Room vs speech-to-speech + tool use) 비교 섹션 추가
+- 인사이트: Voice AI 도메인의 두 계열(LiveKit 방식 / Nova Sonic 방식)이 동시에 위키에 들어오며 [[concepts/multi-agent-voice-architecture]]가 이 둘을 묶는 상위 개념으로 생성됨. 핸드오프 모델 차이(Room 내 역할 전환 vs tool use round-trip)가 향후 비교/종합 페이지 후보

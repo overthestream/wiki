@@ -2,7 +2,7 @@
 title: Voice AI Agent
 type: concept
 tags: [ai, theory, realtime, voice-ai]
-sources: ["raw/articles/LiveKit Documentation.md"]
+sources: ["raw/articles/LiveKit Documentation.md", "raw/articles/Building a multi-agent voice assistant with Amazon Nova Sonic and Amazon Bedrock AgentCore.md"]
 created: 2026-04-21
 updated: 2026-04-21
 ---
@@ -37,7 +37,7 @@ WebRTC는 이 세 가지를 프로토콜 레벨에서 처리한다. [[entities/l
 2. **턴 감지 (Turn Detection)**: 사용자가 말을 끝냈는지 언제 판단하는가. 단순 VAD(음성활동감지)로는 부족하고, 문맥·의미를 고려한 전용 모델이 사용된다.
 3. **인터럽션 처리**: 에이전트가 TTS를 재생 중일 때 사용자가 끼어들면 즉시 재생 중단하고 새 입력 처리.
 4. **도구 사용(Tool Use)**: LLM이 외부 함수/API를 호출하도록 연결. 프론트엔드로 tool call을 포워딩하는 패턴도 존재.
-5. **멀티 에이전트 핸드오프**: 복잡한 워크플로우를 역할별 에이전트로 분해하고 제어권 이양.
+5. **멀티 에이전트 핸드오프**: 복잡한 워크플로우를 역할별 에이전트로 분해하고 제어권 이양. → [[concepts/multi-agent-voice-architecture|멀티 에이전트 보이스 아키텍처]]
 
 ### 배포 형태
 
@@ -52,8 +52,21 @@ LiveKit Agents의 모델을 일반화하면: 에이전트 프로세스는 **"서
 - **LLM 기반 게임 NPC**: 정적 스크립트 대신 동적 대화.
 - **로보틱스**: 로봇 센서 입력을 클라우드의 강력한 모델로 보내고 행동을 내려받음.
 
+### 구현 접근법 두 가지
+
+같은 Voice AI Agent라도 서로 다른 프로토콜/제품 스택으로 구현된다:
+
+- **WebRTC Room 모델** ([[entities/livekit|LiveKit]]): 사용자와 에이전트가 같은 Room의 참여자로 join해 미디어를 publish/subscribe. 인터럽션·턴 감지가 프로토콜 레벨에서 자연스럽다.
+- **Speech-to-Speech 모델 + tool use** ([[entities/amazon-nova-sonic|Amazon Nova Sonic]] + [[entities/amazon-bedrock-agentcore|AgentCore]]): 음성-음성 foundation model이 IO와 라우팅을 동시 담당하고, tool use 이벤트로 서브 에이전트에 위임.
+
+두 접근 모두 [[concepts/multi-agent-voice-architecture|멀티 에이전트 아키텍처]]로 확장 가능하지만, 핸드오프 모델(Room 내 역할 전환 vs tool use round-trip)이 다르다.
+
 ## Related
 
 - [[entities/livekit|LiveKit]]
+- [[entities/amazon-nova-sonic|Amazon Nova Sonic]]
+- [[entities/amazon-bedrock-agentcore|Amazon Bedrock AgentCore]]
 - [[concepts/stt-llm-tts-pipeline|STT-LLM-TTS Pipeline]]
+- [[concepts/multi-agent-voice-architecture|멀티 에이전트 보이스 아키텍처]]
 - [[summaries/2026-04-21-livekit-documentation|LiveKit Agents 프레임워크 공식 문서 요약]]
+- [[summaries/2026-04-21-nova-sonic-multi-agent-voice-assistant|Nova Sonic + AgentCore 멀티 에이전트 요약]]
