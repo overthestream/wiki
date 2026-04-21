@@ -1,7 +1,7 @@
 ---
 title: Activity Log
 type: log
-updated: 2026-04-15
+updated: 2026-04-21
 ---
 
 # Activity Log
@@ -36,3 +36,9 @@ updated: 2026-04-15
 - 요약: 동시성 프로그래밍의 모니터 개념 — 세마포어 한계, 모니터 구조, Hoare vs Mesa, Java synchronized와의 관계
 - 새 페이지: [[summaries/2026-04-15-monitors]], [[concepts/monitor]], [[concepts/semaphore]]
 - 업데이트: [[concepts/jvm-monitor]], [[concepts/virtual-thread]]
+
+## [2026-04-21] ingest | LiveKit Agents 프레임워크 공식 문서
+- 원본: raw/articles/LiveKit Documentation.md
+- 요약: LiveKit Agents는 LiveKit Room의 리얼타임 참여자로 동작하는 Voice AI 에이전트 프레임워크. WebRTC/STT-LLM-TTS/턴 감지/멀티모달을 SDK 레벨로 추상화
+- 새 페이지: [[summaries/2026-04-21-livekit-documentation]], [[entities/livekit]], [[concepts/voice-ai-agent]], [[concepts/stt-llm-tts-pipeline]]
+- 인사이트: 위키 주제가 Java/동시성 중심에서 AI/Realtime 도메인으로 처음 확장. 장기적으로 에이전트 서버의 동시성 모델이 [[concepts/virtual-thread]]와 연결될 여지 있음
