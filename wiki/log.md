@@ -49,3 +49,26 @@ updated: 2026-04-21
 - 새 페이지: [[summaries/2026-04-21-nova-sonic-multi-agent-voice-assistant]], [[entities/amazon-nova-sonic]], [[entities/amazon-bedrock-agentcore]], [[entities/strands-agents]], [[concepts/multi-agent-voice-architecture]]
 - 업데이트: [[concepts/voice-ai-agent]] — 구현 접근법(WebRTC Room vs speech-to-speech + tool use) 비교 섹션 추가
 - 인사이트: Voice AI 도메인의 두 계열(LiveKit 방식 / Nova Sonic 방식)이 동시에 위키에 들어오며 [[concepts/multi-agent-voice-architecture]]가 이 둘을 묶는 상위 개념으로 생성됨. 핸드오프 모델 차이(Room 내 역할 전환 vs tool use round-trip)가 향후 비교/종합 페이지 후보
+
+## [2026-04-21] ingest | OpenAI Realtime API 공식 문서 4건 (using models, conversations, MCP, server-side controls)
+- 원본:
+  - raw/articles/Using realtime models  OpenAI API.md
+  - raw/articles/Realtime conversations  OpenAI API.md
+  - raw/articles/Realtime API with MCP.md
+  - raw/articles/Webhooks and server-side controls.md
+- 요약: OpenAI Realtime API(gpt-realtime)의 프롬프팅 가이드, Session-Conversation-Response 이벤트 모델, MCP 도구 통합, WebRTC/SIP sideband 서버 제어를 다루는 공식 문서 4건 일괄 수집
+- 새 페이지:
+  - [[summaries/2026-04-21-openai-realtime-using-models]]
+  - [[summaries/2026-04-21-openai-realtime-conversations]]
+  - [[summaries/2026-04-21-openai-realtime-mcp]]
+  - [[summaries/2026-04-21-openai-realtime-server-controls]]
+  - [[entities/openai-realtime-api]]
+  - [[concepts/realtime-session-event-model]]
+  - [[concepts/mcp-model-context-protocol]]
+  - [[concepts/sideband-control-channel]]
+  - [[concepts/voice-agent-prompting]]
+- 업데이트: [[concepts/voice-ai-agent]] (세 번째 구현 접근법 추가), [[concepts/stt-llm-tts-pipeline]] (s2s 모델과의 대비 확대), [[concepts/multi-agent-voice-architecture]] (MCP 변종 패턴 섹션 추가)
+- 인사이트:
+  - Voice AI 도메인이 이제 세 계열로 정리됨: LiveKit(WebRTC Room) / Nova Sonic(AWS s2s + AgentCore) / OpenAI Realtime(직결 API + MCP). 핸드오프·도구 통합 방식이 각기 다르며, 비교/종합 페이지 후보로 점점 익어가는 중
+  - MCP는 function tool과 실행 주체(클라 vs 플랫폼)가 다른 것이 핵심 차이. 도구 권한·보안 모델에 직접 영향
+  - Sideband 채널은 voice 앱에서 "클라이언트는 미디어·ephemeral key, 서버는 민감 제어·정식 key"의 보안 분리 기준을 제공

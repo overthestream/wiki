@@ -2,7 +2,7 @@
 title: 멀티 에이전트 보이스 아키텍처
 type: concept
 tags: [ai, theory, voice-ai, architecture, multi-agent]
-sources: ["raw/articles/Building a multi-agent voice assistant with Amazon Nova Sonic and Amazon Bedrock AgentCore.md"]
+sources: ["raw/articles/Building a multi-agent voice assistant with Amazon Nova Sonic and Amazon Bedrock AgentCore.md", "raw/articles/Realtime API with MCP.md"]
 created: 2026-04-21
 updated: 2026-04-21
 ---
@@ -52,10 +52,15 @@ updated: 2026-04-21
 - **라우팅 품질이 LLM 분류기에 의존**: 새 tool description 하나가 전체 routing 정확도를 흔들 수 있다.
 - **관측성 난이도**: 한 대화가 여러 에이전트에 걸쳐 있어 trace/로그 상관관계가 필수.
 
+### MCP로 "서브 에이전트 대신 서버측 도구 집합"을 묶는 변종
+
+[[entities/openai-realtime-api|OpenAI Realtime API]]는 서브 에이전트를 별도 프로세스로 띄우는 대신, 도메인 기능을 **[[concepts/mcp-model-context-protocol|MCP]] 서버**로 패키징해 세션에 붙이는 길을 제공한다. 이 경우 "서브 에이전트"의 지위는 약해지지만, 도구 실행을 OpenAI 측 서버가 대행하므로 클라이언트 복잡도가 낮아진다. 경계가 에이전트 프로세스 단위(AgentCore)냐, 도구 프로토콜 단위(MCP)냐의 차이다.
+
 ## Examples
 
 - **AWS 뱅킹 보이스 어시스턴트**: Nova Sonic 오케스트레이터 + AgentCore에 올린 Authenticate/Banking/Mortgage 서브 에이전트 조합 ([[summaries/2026-04-21-nova-sonic-multi-agent-voice-assistant|요약]] 참조).
 - **[[entities/livekit|LiveKit]] Agents의 멀티 에이전트 핸드오프**: 동일한 아이디어를 WebRTC Room 기반으로 구현. 세션 내에서 에이전트 역할을 전환하는 방식.
+- **OpenAI Realtime + MCP 커넥터**: `gpt-realtime` 세션에 Google Calendar/Docs/사내 MCP 서버를 동시에 붙여, 각 도메인 tool을 하나의 모델이 오케스트레이션 ([[summaries/2026-04-21-openai-realtime-mcp|요약]] 참조).
 
 ## Related
 
@@ -65,4 +70,7 @@ updated: 2026-04-21
 - [[entities/amazon-bedrock-agentcore|Amazon Bedrock AgentCore]]
 - [[entities/strands-agents|Strands Agents]]
 - [[entities/livekit|LiveKit]]
+- [[entities/openai-realtime-api|OpenAI Realtime API]]
+- [[concepts/mcp-model-context-protocol|MCP (Model Context Protocol)]]
 - [[summaries/2026-04-21-nova-sonic-multi-agent-voice-assistant|Nova Sonic + AgentCore 멀티 에이전트 요약]]
+- [[summaries/2026-04-21-openai-realtime-mcp|Realtime API with MCP 요약]]

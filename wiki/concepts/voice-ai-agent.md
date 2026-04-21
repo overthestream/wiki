@@ -2,7 +2,7 @@
 title: Voice AI Agent
 type: concept
 tags: [ai, theory, realtime, voice-ai]
-sources: ["raw/articles/LiveKit Documentation.md", "raw/articles/Building a multi-agent voice assistant with Amazon Nova Sonic and Amazon Bedrock AgentCore.md"]
+sources: ["raw/articles/LiveKit Documentation.md", "raw/articles/Building a multi-agent voice assistant with Amazon Nova Sonic and Amazon Bedrock AgentCore.md", "raw/articles/Using realtime models  OpenAI API.md", "raw/articles/Realtime conversations  OpenAI API.md", "raw/articles/Realtime API with MCP.md", "raw/articles/Webhooks and server-side controls.md"]
 created: 2026-04-21
 updated: 2026-04-21
 ---
@@ -52,21 +52,28 @@ LiveKit Agents의 모델을 일반화하면: 에이전트 프로세스는 **"서
 - **LLM 기반 게임 NPC**: 정적 스크립트 대신 동적 대화.
 - **로보틱스**: 로봇 센서 입력을 클라우드의 강력한 모델로 보내고 행동을 내려받음.
 
-### 구현 접근법 두 가지
+### 구현 접근법 세 가지
 
 같은 Voice AI Agent라도 서로 다른 프로토콜/제품 스택으로 구현된다:
 
 - **WebRTC Room 모델** ([[entities/livekit|LiveKit]]): 사용자와 에이전트가 같은 Room의 참여자로 join해 미디어를 publish/subscribe. 인터럽션·턴 감지가 프로토콜 레벨에서 자연스럽다.
-- **Speech-to-Speech 모델 + tool use** ([[entities/amazon-nova-sonic|Amazon Nova Sonic]] + [[entities/amazon-bedrock-agentcore|AgentCore]]): 음성-음성 foundation model이 IO와 라우팅을 동시 담당하고, tool use 이벤트로 서브 에이전트에 위임.
+- **Speech-to-Speech 모델 + tool use (AWS)** ([[entities/amazon-nova-sonic|Amazon Nova Sonic]] + [[entities/amazon-bedrock-agentcore|AgentCore]]): 음성-음성 foundation model이 IO와 라우팅을 동시 담당하고, tool use 이벤트로 서브 에이전트에 위임.
+- **Speech-to-Speech 직접 API** ([[entities/openai-realtime-api|OpenAI Realtime API]]): 클라이언트가 WebRTC/WebSocket/SIP로 모델에 **직접 접속**. `session.update` 이벤트로 prompt·tool·MCP를 실시간 구성. 비즈니스 로직은 [[concepts/sideband-control-channel|sideband 채널]]로 서버에 분리. 도구는 function tool 또는 [[concepts/mcp-model-context-protocol|MCP]] 두 계열.
 
-두 접근 모두 [[concepts/multi-agent-voice-architecture|멀티 에이전트 아키텍처]]로 확장 가능하지만, 핸드오프 모델(Room 내 역할 전환 vs tool use round-trip)이 다르다.
+세 접근 모두 [[concepts/multi-agent-voice-architecture|멀티 에이전트 아키텍처]]로 확장 가능하지만, 핸드오프 모델(Room 내 역할 전환 vs tool use round-trip vs MCP/function tool 조합)이 다르다.
 
 ## Related
 
 - [[entities/livekit|LiveKit]]
 - [[entities/amazon-nova-sonic|Amazon Nova Sonic]]
 - [[entities/amazon-bedrock-agentcore|Amazon Bedrock AgentCore]]
+- [[entities/openai-realtime-api|OpenAI Realtime API]]
 - [[concepts/stt-llm-tts-pipeline|STT-LLM-TTS Pipeline]]
 - [[concepts/multi-agent-voice-architecture|멀티 에이전트 보이스 아키텍처]]
+- [[concepts/realtime-session-event-model|Realtime Session/Event Model]]
+- [[concepts/sideband-control-channel|Sideband Control Channel]]
+- [[concepts/mcp-model-context-protocol|MCP (Model Context Protocol)]]
+- [[concepts/voice-agent-prompting|Voice Agent Prompting]]
 - [[summaries/2026-04-21-livekit-documentation|LiveKit Agents 프레임워크 공식 문서 요약]]
 - [[summaries/2026-04-21-nova-sonic-multi-agent-voice-assistant|Nova Sonic + AgentCore 멀티 에이전트 요약]]
+- [[summaries/2026-04-21-openai-realtime-conversations|OpenAI Realtime conversations 요약]]

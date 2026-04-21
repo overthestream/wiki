@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/summaries/2026-04-21-livekit-documentation.md",
+                "file": "raw/articles/Using realtime models  OpenAI API.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-21-livekit-documentation"
+              "title": "Using realtime models  OpenAI API"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "fc544a253e7e2075",
@@ -182,35 +182,35 @@
   },
   "active": "1a0f981d086e615b",
   "lastOpenFiles": [
+    "wiki/summaries/2026-04-21-openai-realtime-server-controls.md",
+    "wiki/summaries/2026-04-21-openai-realtime-mcp.md",
+    "wiki/summaries/2026-04-21-openai-realtime-conversations.md",
+    "wiki/summaries/2026-04-21-openai-realtime-using-models.md",
+    "wiki/concepts/voice-agent-prompting.md",
+    "wiki/concepts/sideband-control-channel.md",
+    "wiki/concepts/mcp-model-context-protocol.md",
+    "wiki/concepts/realtime-session-event-model.md",
+    "wiki/entities/openai-realtime-api.md",
+    "raw/articles/Webhooks and server-side controls.md",
+    "raw/articles/Realtime API with MCP.md",
+    "Untitled.md",
+    "raw/articles/Realtime conversations  OpenAI API.md",
+    "raw/articles/Using realtime models  OpenAI API.md",
     "wiki/concepts/multi-agent-voice-architecture.md",
+    "wiki/concepts/stt-llm-tts-pipeline.md",
+    "wiki/concepts/voice-ai-agent.md",
+    "wiki/summaries/2026-04-21-nova-sonic-multi-agent-voice-assistant.md",
+    "wiki/summaries/2026-04-21-livekit-documentation.md",
     "wiki/entities/strands-agents.md",
     "wiki/entities/amazon-bedrock-agentcore.md",
     "wiki/entities/amazon-nova-sonic.md",
-    "wiki/summaries/2026-04-21-nova-sonic-multi-agent-voice-assistant.md",
-    "wiki/concepts/stt-llm-tts-pipeline.md",
-    "wiki/concepts/voice-ai-agent.md",
     "wiki/entities/livekit.md",
     "raw/articles/Building a multi-agent voice assistant with Amazon Nova Sonic and Amazon Bedrock AgentCore.md",
     "templates/summary.md",
     "templates/entity.md",
-    "templates/concept.md",
-    "raw/articles/LiveKit Documentation.md",
     "wiki/entities",
-    "wiki/summaries/2026-04-21-livekit-documentation.md",
     "Clippings",
-    "wiki/index.md",
-    "wiki/log.md",
-    "wiki/concepts/thread-pinning.md",
-    "wiki/concepts/virtual-thread.md",
-    "wiki/concepts/jvm-monitor.md",
-    "wiki/summaries/2026-04-15-simple-async-task-executor.md",
-    "wiki/summaries/2026-04-15-virtual-thread-qna.md",
-    "wiki/summaries/2026-04-15-java-virtual-threads.md",
-    "templates/무제.md",
-    "templates/무제 1.md",
-    "templates/무제/무제.md",
     "templates/무제",
-    "2026-04-15.md",
     "templates/무제/Clippings"
   ]
 }
